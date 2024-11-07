@@ -1,7 +1,14 @@
 const express = require('express');
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const userRoutes = require('./routes/user_routes');
-const PORT = 3000; // You can choose any available port
+const PORT = 3000; 
+
+
+
 
 
 app.use('/users',userRoutes)

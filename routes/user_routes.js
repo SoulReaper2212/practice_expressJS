@@ -4,23 +4,20 @@ const {loginMiddleware,authMiddleware} = require("../middleware/user_middleware"
 
 
 
-router.get('/user',authMiddleware,(req,res) =>{
 
-    res.send('hello user')
-
-});
-
-
-router.get('/user-dashboard',authMiddleware,(req,res) =>{
-
-    res.send('this is user dashboard')
+router.post('/user-dashboard',authMiddleware,(req,res) =>{
+    
+    res.json({docode:req.user,message:"user authorized and accessed"})
+  
 
 });
 
 
-router.get('/user-login',loginMiddleware,(req,res) =>{
+router.post('/user-login',loginMiddleware,(req,res) =>{
+    
+    res.json({token:req.token,message:"user logged in"})
+ 
 
-    res.send('you are now logged in')
 
 });
 
